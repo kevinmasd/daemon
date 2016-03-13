@@ -4,7 +4,7 @@
  *    name: Sensor name (String),
  *    peripheralType: Sensor type (String),
  *    id: Unique id (String),
- *    value: Sensor value (String)
+ *    value: Sensor value (Number)
  *  defaultProps:
  *    peripheralType: 'peripheralType was undefined'
  */
@@ -35,6 +35,6 @@ GenericPeripheral.propTypes = {
   name: React.PropTypes.string,
   peripheralType: React.PropTypes.string,
   id: React.PropTypes.string,
-  value: React.PropTypes.string
+  value: React.PropTypes.number
 };
 GenericPeripheral.defaultProps = {peripheralType: 'peripheralType was undefined'};
