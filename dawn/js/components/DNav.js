@@ -15,11 +15,11 @@ import smalltalk from 'smalltalk';
 import Ansible from '../utils/Ansible';
 const storage = remote.require('electron-json-storage');
 
-export default React.createClass({
-  displayName: 'DNav',
-  getInitialState() {
-    return { showUpdateModal: false };
-  },
+export default class DNav extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {showUpdateModal: false};
+  }
   saveAddress(currentAddress) {
     let prompt = smalltalk.prompt(
       'Enter the IP address of the robot:',
@@ -34,7 +34,7 @@ export default React.createClass({
         Ansible.reload();
       });
     }, ()=>console.log('Canceled'));
-  },
+  }
   updateAddress() {
     storage.has('runtimeAddress').then((hasKey)=>{
       if (hasKey) {
@@ -45,13 +45,13 @@ export default React.createClass({
         this.saveAddress('127.0.0.1');
       }
     });
-  },
+  }
   getDawnVersion() {
     return VERSION;
-  },
+  }
   toggleUpdateModal() {
-    this.setState({ showUpdateModal: !this.state.showUpdateModal });
-  },
+    this.setState({showUpdateModal: !this.state.showUpdateModal});
+  }
   render() {
     return (
       <Navbar fixedTop fluid>
@@ -68,12 +68,12 @@ export default React.createClass({
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
-	  <Navbar.Text>
-	    <StatusLabel
-	      connectionStatus={this.props.connection}
-	      runtimeStatus={this.props.runtimeStatus}
-	      battery={this.props.battery} />
-	  </Navbar.Text>
+    <Navbar.Text>
+      <StatusLabel
+        connectionStatus={this.props.connection}
+        runtimeStatus={this.props.runtimeStatus}
+        battery={this.props.battery} />
+    </Navbar.Text>
           <Navbar.Form
             pullRight={true}>
             <ButtonToolbar>
@@ -127,4 +127,5 @@ export default React.createClass({
       </Navbar>
     );
   }
-});
+}
+
