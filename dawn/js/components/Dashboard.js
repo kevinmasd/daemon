@@ -7,15 +7,14 @@ import Gamepads from './Gamepads';
 import RobotActions from '../actions/RobotActions';
 import Editor from './Editor';
 
-export default React.createClass({
-  displayName: 'Dashboard',
+export default class Dashboard extends React.Component {
   render() {
     return (
       <Grid fluid>
         <Row>
           <Col smPush={8} sm={4}>
             <FinalCompPeripheralList
-	      connectionStatus={this.props.connectionStatus}
+              connectionStatus={this.props.connectionStatus}
               runtimeStatus={this.props.runtimeStatus}/>
             <Gamepads />
           </Col>
@@ -29,4 +28,5 @@ export default React.createClass({
       </Grid>
     );
   }
-});
+}
+Dashboard.displayName = "Dashboard";

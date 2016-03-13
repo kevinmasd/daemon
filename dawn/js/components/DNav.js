@@ -68,19 +68,16 @@ export default class DNav extends React.Component {
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
-    <Navbar.Text>
-      <StatusLabel
-        connectionStatus={this.props.connection}
-        runtimeStatus={this.props.runtimeStatus}
-        battery={this.props.battery} />
-    </Navbar.Text>
-          <Navbar.Form
-            pullRight={true}>
+          <Navbar.Text>
+            <StatusLabel
+              connectionStatus={this.props.connection}
+              runtimeStatus={this.props.runtimeStatus}
+              battery={this.props.battery} />
+          </Navbar.Text>
+          <Navbar.Form pullRight={true}>
             <ButtonToolbar>
               <ButtonGroup>
-                <OverlayTrigger
-                  placement="bottom"
-                  overlay={
+                <OverlayTrigger placement="bottom" overlay={
                     <Tooltip id={ 'tour-tooltip' }>
                       Tour
                     </Tooltip>
@@ -92,9 +89,7 @@ export default class DNav extends React.Component {
                     <Glyphicon glyph="info-sign" />
                   </Button>
                 </OverlayTrigger>
-                <OverlayTrigger
-                  placement="bottom"
-                  overlay={
+                <OverlayTrigger placement="bottom" overlay={
                     <Tooltip id={ 'update-address-tooltip' }>
                       Robot IP
                     </Tooltip>
@@ -106,9 +101,7 @@ export default class DNav extends React.Component {
                     <Glyphicon glyph="transfer" />
                   </Button>
                 </OverlayTrigger>
-                <OverlayTrigger
-                  placement="bottom"
-                  overlay={
+                <OverlayTrigger placement="bottom" overlay={
                     <Tooltip id={ 'upgrade-software-tooltip' }>
                       Upload Upgrade
                     </Tooltip>
@@ -128,4 +121,3 @@ export default class DNav extends React.Component {
     );
   }
 }
-

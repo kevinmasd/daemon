@@ -8,7 +8,7 @@ import {
 } from 'react-bootstrap';
 import _ from 'lodash';
 
-var ConsoleOutput = React.createClass({
+export default class ConsoleOutput extends React.Component {
   render() {
     return (
       <div>
@@ -22,15 +22,13 @@ var ConsoleOutput = React.createClass({
                 padding: '5px',
                 width: '99%'
             }}>
-            {_.map(this.props.output, (line, index)=>{
-              return (<code key={index}>{line}</code>);
-            })}
+              {_.map(this.props.output, (line, index)=>{
+                return (<code key={index}>{line}</code>);
+              })}
             </div>
           </pre>
         </Panel>
       </div>
     );
   }
-});
-
-export default ConsoleOutput;
+}
